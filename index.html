@@ -36,13 +36,10 @@
       width: 200px;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
 
     .box img {
@@ -52,8 +49,17 @@
       border-radius: 10px;
     }
 
-    .box:hover img {
-      display: block;
+    .show-image {
+      background-color: #cc0052;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .show-image:hover {
+      background-color: #99003d;
     }
   </style>
 </head>
@@ -62,24 +68,36 @@
   <div class="box-container">
     <div class="box">
       Class Diagram
-      <img src="classvp.jpeg" alt="Class Diagram">
+      <button class="show-image" onclick="showImage('class-diagram')">Show</button>
+      <img id="class-diagram" src="classvp.jpeg" alt="Class Diagram">
     </div>
     <div class="box">
       ER Diagram
-      <img src="erdiagramvp.jpeg" alt="ER Diagram">
+      <button class="show-image" onclick="showImage('er-diagram')">Show</button>
+      <img id="er-diagram" src="erdiagramvp.jpeg" alt="ER Diagram">
     </div>
     <div class="box">
       Use Case Diagram
-      <img src="usecasevp.jpeg" alt="Use Case Diagram">
+      <button class="show-image" onclick="showImage('use-case-diagram')">Show</button>
+      <img id="use-case-diagram" src="usecasevp.jpeg" alt="Use Case Diagram">
     </div>
     <div class="box">
       Activity Diagram
-      <img src="activityvp.jpeg" alt="Activity Diagram">
+      <button class="show-image" onclick="showImage('activity-diagram')">Show</button>
+      <img id="activity-diagram" src="activityvp.jpeg" alt="Activity Diagram">
     </div>
     <div class="box">
       Sequence Diagram
-      <img src="sequencevp.jpeg" alt="Sequence Diagram">
+      <button class="show-image" onclick="showImage('sequence-diagram')">Show</button>
+      <img id="sequence-diagram" src="sequencevp.jpeg" alt="Sequence Diagram">
     </div>
   </div>
+
+  <script>
+    function showImage(imageId) {
+      const image = document.getElementById(imageId);
+      image.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
